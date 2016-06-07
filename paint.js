@@ -42,7 +42,7 @@ context.lineJoin='round';
 context.lineCap='round';
 context.strokeStyle=`rgba(${r},${g},${b},1`;
 
-
+canvas.addEventListener("mousemove", randomize);
 canvas.addEventListener("mousedown", function(){
 	randomize();
 	context.beginPath();
@@ -56,7 +56,7 @@ canvas.addEventListener("mouseup", function(){
 	canvas.removeEventListener("mousemove", onPaint,false);
 },false);
 var onPaint=function(){
-	randomize();
+	
 	context.lineTo(mouse.x,mouse.y);
 	context.stroke();
 }
