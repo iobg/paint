@@ -4,12 +4,23 @@ var painting = document.getElementById("paint");
 var paint_style=getComputedStyle(painting);
 var r = Math.floor(Math.random()*255);
 var g = Math.floor(Math.random()*255);
-var b = Math.floor(Math.random()*255); 
+var b = Math.floor(Math.random()*255);
+var count=1;
 function randomize(){
 r = Math.floor(Math.random()*255);
 g = Math.floor(Math.random()*255);
 b = Math.floor(Math.random()*255); 
+count++;
+
+
+
+if(count%2===1){
 context.strokeStyle=`rgba(${r},${g},${b},1`;
+}
+if(count%2===0){
+painting.style.backgroundColor=`rgba(${r},${g},${b},1`;
+
+}
 
 }
 
@@ -30,6 +41,7 @@ context.lineWidth=3;
 context.lineJoin='round';
 context.lineCap='round';
 context.strokeStyle=`rgba(${r},${g},${b},1`;
+
 
 canvas.addEventListener("mousedown", function(){
 	randomize();
